@@ -1,0 +1,99 @@
+.reservation-page h1 {
+  margin-bottom: 5px;
+}
+
+.header p {
+  color: #777;
+}
+
+.form-card,
+.table-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.add-btn {
+  width: 100%;
+  margin-top: 18px;
+  background: #1769e0;
+  color: white;
+  border: none;
+  padding: 11px;
+  border-radius: 5px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-header input {
+  width: 250px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 13px;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+.confirmed {
+  background: #d9f7e5;
+  color: #168544;
+}
+
+.pending {
+  background: #fff0c2;
+  color: #a66a00;
+}
+
+.cancelled {
+  background: #ffe0e0;
+  color: #d22;
+}
+
+.delete {
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+}

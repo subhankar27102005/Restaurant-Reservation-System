@@ -1,0 +1,43 @@
+
+<div class="login-page">
+  <div class="login-box">
+    <h1>Restaurant Login</h1>
+    <p>Please login to continue</p>
+
+    <form (ngSubmit)="login()">
+
+      <label>Username</label>
+      <input
+        type="text"
+        name="userName"
+        [(ngModel)]="userName"
+        placeholder="Enter your username"
+        required
+        />
+      <label>Email</label>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="Enter your email"
+        required
+      />
+
+      <label>Password</label>
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Enter your password"
+        required
+      />
+
+
+       @if(errorMessage){
+      <p>{{errorMessage}}</p>
+    }
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>

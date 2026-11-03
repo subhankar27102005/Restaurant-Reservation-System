@@ -1,0 +1,161 @@
+
+<div class="dashboard-page">
+
+  <!-- Dashboard Header -->
+  <div class="page-header">
+    <div>
+      <h1>Dashboard</h1>
+      <p>Welcome to Restaurant Management System</p>
+    </div>
+  </div>
+
+  <!-- Dashboard Cards -->
+  <div class="stats-grid">
+
+    <!-- Total Reservations -->
+    <div class="stat-card total-card">
+      <div class="card-top">
+        <span class="stat-icon">▦</span>
+        <span class="card-title">Total Reservations</span>
+      </div>
+
+      <h2>{{ totalReservations }}</h2>
+
+      <a routerLink="/reservations">View All →</a>
+    </div>
+
+    <!-- Available Tables -->
+    <div class="stat-card available-card">
+      <div class="card-top">
+        <span class="stat-icon">▣</span>
+        <span class="card-title">Available Tables</span>
+      </div>
+
+      <h2>{{ availableTables }}</h2>
+
+      <a routerLink="/tables">View Tables →</a>
+    </div>
+
+    <!-- Occupied Tables -->
+    <div class="stat-card occupied-card">
+      <div class="card-top">
+        <span class="stat-icon">▣</span>
+        <span class="card-title">Occupied Tables</span>
+      </div>
+
+      <h2>{{ occupiedTables }}</h2>
+
+      <a routerLink="/tables">View Tables →</a>
+    </div>
+
+    <!-- Total Customers -->
+    <div class="stat-card customer-card">
+      <div class="card-top">
+        <span class="stat-icon">♟</span>
+        <span class="card-title">Total Customers</span>
+      </div>
+
+      <h2>{{ totalCustomers }}</h2>
+
+      <a routerLink="/customers">View Customers →</a>
+    </div>
+
+  </div>
+
+  <!-- Recent Reservations -->
+  <div class="recent-reservations">
+
+    <h2>Recent Reservations</h2>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Guests</th>
+            <th>Table</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let reservation of recentReservations; let i = index">
+
+            <td>{{ i + 1 }}</td>
+            <td>{{ reservation.customerName }}</td>
+            <td>{{ reservation.date | date:'yyyy-MM-dd' }}</td>
+            <td>{{ reservation.time }}</td>
+            <td>{{ reservation.guests }}</td>
+            <td>{{ reservation.tableNumber }}</td>
+
+            <td>
+              <span
+                class="status"
+                [class.confirmed]="reservation.status === 'Confirmed'"
+                [class.pending]="reservation.status === 'Pending'"
+                [class.cancelled]="reservation.status === 'Cancelled'"
+                [class.completed]="reservation.status === 'Completed'">
+                {{ reservation.status }}
+              </span>
+            </td>
+
+          </tr>
+
+          <tr *ngIf="recentReservations.length === 0">
+            <td colspan="7" class="no-data">
+              No Reservations Found
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="view-all">
+      <a routerLink="/reservations">View All Reservations →</a>
+    </div>
+
+  </div>
+
+  <!-- Latest Feedback Section -->
+  <div class="feedback-card">
+
+    <div class="feedback-header">
+      <h2>Latest Feedback</h2>
+    </div>
+
+    <div class="feedback-body">
+
+      <div class="feedback-item"
+           *ngFor="let feedback of feedbacks">
+
+        <!-- Customer Avatar -->
+        <div class="feedback-avatar">
+          {{ feedback.customerName.charAt(0) }}
+        </div>
+
+        <!-- Customer Details -->
+        <div class="feedback-details">
+          <h3>{{ feedback.customerName }}</h3>
+          <p>{{ feedback.comment }}</p>
+        </div>
+
+        <!-- Star Rating -->
+        <div class="feedback-rating">
+          <span
+            *ngFor="let star of [1, 2, 3, 4, 5]"
+            [class.active]="feedback.rating >= star"
+            [class.half]="feedback.rating >= star - 0.5 && feedback.rating < star">
+            ★
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

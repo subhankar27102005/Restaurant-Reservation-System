@@ -1,0 +1,159 @@
+<div class="table-page">
+
+  <!-- Header -->
+  <div class="header">
+
+    <div>
+      <h1>Table Management</h1>
+      <p>Manage restaurant tables and their status</p>
+    </div>
+
+    <button class="add-btn" (click)="openAddForm()">
+      + Add Table
+    </button>
+
+  </div>
+
+  <!-- Add Table Form -->
+  <div class="add-table-form" *ngIf="showAddForm">
+
+    <h2>Add New Table</h2>
+
+    <div class="form-group">
+
+      <label>Table Number</label>
+
+      <input
+        type="number"
+        [(ngModel)]="newTable.tableNumber"
+        placeholder="Enter table number"
+        min="1">
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Capacity</label>
+
+      <input
+        type="number"
+        [(ngModel)]="newTable.capacity"
+        placeholder="Enter capacity"
+        min="1">
+
+    </div>
+
+    <div class="form-buttons">
+
+      <button class="save-btn" (click)="addTable()">
+        Save Table
+      </button>
+
+      <button class="cancel-btn" (click)="cancelForm()">
+        Cancel
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Table Statistics -->
+  <div class="table-stats">
+
+    <div class="stat-card">
+      <span>Total Tables</span>
+      <strong>{{ tables.length }}</strong>
+    </div>
+
+    <div class="stat-card">
+      <span>Available Tables</span>
+      <strong>{{ availableTables }}</strong>
+    </div>
+
+    <div class="stat-card">
+      <span>Occupied Tables</span>
+      <strong>{{ occupiedTables }}</strong>
+    </div>
+
+  </div>
+
+  <!-- Table List -->
+  <div class="table-card">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Table Number</th>
+          <th>Capacity</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @for (table of tables; track table.id) {
+
+          <tr>
+
+            <td>{{ table.id }}</td>
+
+            <td>{{ table.tableNumber }}</td>
+
+            <td>{{ table.capacity }}</td>
+
+            <td>
+  <span
+    class="status"
+    [ngClass]="{
+      'available': table.status === 'Available',
+      'occupied': table.status === 'Occupied'
+    }">
+    {{ table.status }}
+  </span>
+</td>
+
+            <td>
+
+              <button
+                class="change-btn"
+                (click)="changeStatus(
+                  table.id,
+                  table.status === 'Available'
+                    ? 'Occupied'
+                    : 'Available'
+                )">
+                Change
+              </button>
+
+              <button
+                class="delete-btn"
+                (click)="deleteTable(table.id)">
+                Delete
+              </button>
+
+            </td>
+
+          </tr>
+
+        }
+
+        @empty {
+
+          <tr>
+            <td colspan="5" class="empty">
+              No tables available. Please add a table.
+            </td>
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

@@ -1,0 +1,52 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 230px;
+  height: 100vh;
+
+  background: #09213b;
+  color: white;
+
+  padding: 20px 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  margin-bottom: 30px;
+}
+
+.admin {
+  padding: 10px;
+  background: #143656;
+  border-radius: 6px;
+
+  margin-bottom: 20px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+
+  padding: 12px;
+
+  border-radius: 6px;
+}
+
+nav a:hover {
+  background: #1769e0;
+}

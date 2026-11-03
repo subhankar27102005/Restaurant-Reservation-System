@@ -1,0 +1,116 @@
+<div class="customer-page">
+
+  <h1>Customers</h1>
+
+  <p>Manage your customers</p>
+
+
+  <div class="form-card">
+
+    <h2>Add Customer</h2>
+
+    <form
+      (ngSubmit)="addCustomer()"
+    >
+
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="customer.name"
+        placeholder="Enter customer name"
+        required
+      >
+
+      <input
+        type="text"
+        name="phone"
+        [(ngModel)]="customer.phone"
+        placeholder="Enter phone number"
+        required
+      >
+
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="customer.email"
+        placeholder="Enter email address"
+        required
+      >
+
+      <button type="submit">
+        + Add Customer
+      </button>
+
+    </form>
+
+  </div>
+
+
+  <div class="table-card">
+
+    <h2>All Customers</h2>
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>ID</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Action</th>
+
+        </tr>
+
+      </thead>
+
+
+      <tbody>
+
+        @for (
+          customer of customers;
+          track customer.id
+        ) {
+
+          <tr>
+
+            <td>
+              {{ customer.id }}
+            </td>
+
+            <td>
+              {{ customer.name }}
+            </td>
+
+            <td>
+              {{ customer.phone }}
+            </td>
+
+            <td>
+              {{ customer.email }}
+            </td>
+
+            <td>
+
+              <button
+                class="delete"
+                (click)="deleteCustomer(customer.id)"
+              >
+                Delete
+              </button>
+
+            </td>
+
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

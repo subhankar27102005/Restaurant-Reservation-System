@@ -1,0 +1,184 @@
+
+<div class="home-page">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+
+    <a routerLink="/home" class="logo">
+      <span class="logo-icon">🍴</span>
+      <span>
+        Restaurant
+        <small>Management System</small>
+      </span>
+    </a>
+
+    <div class="nav-links">
+      <a routerLink="/home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <a routerLink="/login" class="login-btn">Login</a>
+
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+
+    <div class="hero-content">
+      <p class="welcome">WELCOME TO OUR RESTAURANT</p>
+
+      <h1>
+        Enjoy Delicious
+        <span>Food & Taste</span>
+      </h1>
+
+      <p class="hero-description">
+        Good Food • Great Mood • Better Together
+      </p>
+
+      <div class="hero-buttons">
+        <a routerLink="/reservations" class="book-btn">
+          📅 Book a Table →
+        </a>
+
+        <a href="#about" class="explore-btn">
+          Explore More
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+
+    <div class="service-item">
+      <span>🍴</span>
+      <div>
+        <h3>Delicious Food</h3>
+        <p>Fresh & Tasty</p>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <span>🍽️</span>
+      <div>
+        <h3>Excellent Service</h3>
+        <p>Always With You</p>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <span>⭐</span>
+      <div>
+        <h3>Cozy Ambience</h3>
+        <p>Feel Like Home</p>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <span>👍</span>
+      <div>
+        <h3>Easy Reservation</h3>
+        <p>Book in Seconds</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Popular Dishes -->
+  <section class="menu-section" id="menu">
+
+    <div class="section-heading">
+      <h2>Popular Dishes</h2>
+      <p>Discover Our Special Dishes</p>
+    </div>
+
+    <div class="food-grid">
+
+      <div class="food-card" *ngFor="let dish of dishes">
+
+        <img [src]="dish.image" [alt]="dish.name">
+
+        <div class="food-info">
+          <h3>{{ dish.name }}</h3>
+
+          <div>
+            <span class="rating">★ {{ dish.rating }}</span>
+            <strong>{{ dish.price }}</strong>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- About Us -->
+  <section class="about-section" id="about">
+
+    <div class="about-image"></div>
+
+    <div class="about-content">
+      <h2>About Us</h2>
+
+      <p>
+        We are dedicated to providing the best dining
+        experience with delicious food, excellent service
+        and a warm atmosphere.
+      </p>
+
+      <p>
+        Our Restaurant Management System helps us manage
+        reservations, tables and customers efficiently.
+      </p>
+
+      <a routerLink="/login" class="learn-btn">
+        Learn More →
+      </a>
+    </div>
+
+    <div class="about-stats">
+
+      <div>
+        <h2>1000+</h2>
+        <p>Happy Customers</p>
+      </div>
+
+      <div>
+        <h2>50+</h2>
+        <p>Delicious Dishes</p>
+      </div>
+
+      <div>
+        <h2>4.8 ★</h2>
+        <p>Customer Rating</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+
+    <div class="footer-logo">
+      🍴 Restaurant
+      <small>Management System</small>
+    </div>
+
+    <p>Taste the Difference • Reserve Your Table Today</p>
+
+    <div class="social-links">
+      <a href="https://facebook.com">f</a>
+      <a href="https://youtube.com">▶</a>
+      <a href="https://instagram.com">◎</a>
+    </div>
+
+  </footer>
+
+</div>
